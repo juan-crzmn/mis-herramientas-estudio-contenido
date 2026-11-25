@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f6f2"><title>Mis herramientas</title><link rel="stylesheet" href="/styles.css">
+<style>
+  .intro-title{font-size:clamp(31px,4vw,46px);line-height:1.05;letter-spacing:-1.9px;margin:0 0 9px}.intro-copy{margin:0;color:var(--muted);font-size:14px}.tabs{display:flex;gap:6px;padding:5px;background:#e9ece8;border-radius:12px;margin:22px 0 0;width:max-content}.tab{border:0;background:transparent;color:#64716a;padding:10px 16px;border-radius:9px;font-size:13px;font-weight:700}.tab.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px #27352c12}.frame-wrap{margin-top:16px;background:transparent}.tool-frame{width:100%;height:900px;border:0;display:block;background:var(--bg)}.footnote{margin:8px 2px 0;color:var(--muted);font-size:10px;line-height:1.5}
+  @media(max-width:760px){.tabs{width:100%}.tab{flex:1;padding:10px 8px}.tool-frame{height:1120px}}
+</style></head>
+<body data-mode="home"><main class="shell">
+  <header class="top"><div class="brand"><span class="mark">✳</span><span>Mis herramientas<small>Estudio y creación, en espacios separados</small></span></div><span class="status">Prototipo local</span></header>
+  <section class="intro"><div><h1 class="intro-title">Tu espacio para<br>aprender y crear.</h1><p class="intro-copy">Elige una herramienta. Cada una conserva su propio flujo de trabajo.</p></div></section>
+  <nav class="tabs" aria-label="Herramientas"><button class="tab active" type="button" data-page="estudio.html?embed=1">✎ Estudio</button><button class="tab" type="button" data-page="contenido.html?embed=1">▶ Contenido</button></nav>
+  <section class="frame-wrap"><iframe class="tool-frame" id="tool-frame" src="estudio.html?embed=1" title="Herramienta Estudio"></iframe></section>
+  <p class="footnote">El texto y las fotos se envían a la IA únicamente cuando la conexión está configurada, marcas el consentimiento y pulsas una acción.</p>
+</main><script>
+  const frame=document.querySelector('#tool-frame');
+  document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(item=>item.classList.toggle('active',item===tab));frame.src=tab.dataset.page;frame.title=tab.dataset.page.startsWith('estudio')?'Herramienta Estudio':'Herramienta Contenido'}));
+</script></body></html>
